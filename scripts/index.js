@@ -1,5 +1,5 @@
 import {Card} from './Card.js'
-import {validationConfig, FormValidator} from './Validate.js'
+import {validationConfig, FormValidator} from './FormValidator.js'
 import {initialCards} from './Initial-сards.js';
 
 
@@ -35,13 +35,6 @@ profileValidator.enableValidation();
 
 const addCardValidator = new FormValidator(validationConfig, popupFormAdd);
 addCardValidator.enableValidation();
-
-//Открытие popup_edit
-function handleProfileOpenButtonClick() {
-	formInputNemaNode.valuse = porfolioNemaNode.textContent;
-	formInputjobNode.value = porfoliojobNode.textContent;
-	openPopup(popupEditNode);
-}
 
 //Открытие popup
 function openPopup(popup) {
@@ -121,7 +114,7 @@ function createCard(data) {
 
 function handleFormAddSubmit(evt) {
 	evt.preventDefault();
-	const cardElement = createCard({name: placeNameInput.value, link: placeLinkInput.value});
+	const cardElement = createCard({name: formInputImgNemaNode.value, link: formInputImglinkNode.value});
 	listContenerCards.prepend(cardElement);
 	closePopup(evt.target.closest('.popup'));
 	popupFormAdd.reset();
