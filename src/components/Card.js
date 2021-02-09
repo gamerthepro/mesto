@@ -1,6 +1,4 @@
-import {initialCards} from './Initial-сards.js';
-
-export class Card {
+export default class Card {
 
 	constructor(data, cardSelector, handleCardClick) {
 		this._name = data.name;
