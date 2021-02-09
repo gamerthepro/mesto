@@ -2,11 +2,11 @@ import {initialCards} from './Initial-сards.js';
 
 export class Card {
 
-	constructor(data, cardSelector, openImgClick) {
+	constructor(data, cardSelector, handleCardClick) {
 		this._name = data.name;
 		this._link = data.link;
 		this._cardSelector = cardSelector;
-		this._openImgClick = openImgClick;
+		this._handleCardClick = handleCardClick;
 	}
 
 	//Создание разметки
@@ -55,7 +55,7 @@ export class Card {
 
 		const imageItem = this._element.querySelector('.element__image');
 		imageItem.addEventListener('click', () => {
-			this._openImgClick(this._link, this._name);
+			this._handleCardClick(this._link, this._name);
 		});
 	};
 }
