@@ -1,18 +1,22 @@
 export class Popup {
 
-		constructor(popUpSelector) {
-		this._popUpSelector = popUpSelector;
+	constructor(popupSelector) {
+		this._popupSelector = popupSelector;
+		this._popup = document.querySelector(popupSelector);
+		this._handleEscClose = this._handleEscClose.bind(this);
 	}
 
 	// публичный метод открытия попап
 	open() {
-		this._popUpSelector.classList.add('popup__open');
+		this._popup.classList.add('popup__open');
+		document.addEventListener('keydown', this._handleEscClose);
 	}
 
 
 	// публичный метод закрытия попап
 	close() {
-		this._popUpSelector.classList.remove('popup__open');
+		this._popup.classList.remove('popup__open');
+		document.removeEventListener('keydown', this._handleEscClose);
 	}
 
 	// закрытия попапа клавишей Esc
@@ -24,14 +28,11 @@ export class Popup {
 
 	// закрытия попапа кликом по иконке
 	setEventListeners(){
-		const pageNode = document.querySelector('.page');
-		pageNode.addEventListener('keydown', (evt) => this._handleEscClose(evt));
-		this._popUpSelector.addEventListener('click', (evt) => {
-			if (evt.target.classList.contains('popup')) {
-				this.close(evt.target);
-			}
-			if (evt.target.classList.contains('popup__close')) {
-				this.close(evt.target.closest('.popup'));
+		this._popup.addEventListener('click', (evt) => {
+			if (evt.target.closest('.popup__container')
+			&& evt.target.closest('.popup__container_image')
+			|| evt.target.classList.contains('popup__close')) {
+				this.close();
 			}
 		})
 
