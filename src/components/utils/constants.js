@@ -1,31 +1,32 @@
-const formNode = document.querySelector('[name="form-adit"]');
-const popupFormAdd = document.querySelector('[name="form-add"]');
-const popupAddNode = document.querySelector('.popup_type_add');
-const popupEditNode = document.querySelector('.popup_type_edit');
-const popupImageNode = document.querySelector('.popup_type_image');
-const listContenerCards = document.querySelector('.elements__contener');
-const templateElement = document.querySelector('.element-template');
+const popupFormEdit = '[name="form-adit"]';
+const popupFormAdd = '[name="form-add"]';
+const popupAddNode = '.popup_type_add';
+const popupEditNode = '.popup_type_edit';
+const popupImageNode = '.popup_type_image';
+const listContenerCards = '.elements__contener';
+const templateElement = '.element-template';
 
-const formInputNemaNode = document.querySelector('.popup__input_edit_name');
-const formInputjobNode = document.querySelector('.popup__input_edit_job');
+const formInputNameNode = document.querySelector('.popup__input_edit_name');
+const formInputJobNode = document.querySelector('.popup__input_edit_job');
 const profileAddButtonNode = document.querySelector('.profile__button_open_add')
 const profileButtonNode = document.querySelector('.profile__button_open_edit');
 
-const porfolioNemaNode = document.querySelector('.profile__title');
-const porfoliojobNode = document.querySelector('.profile__subtitle');
+const profilePorfolio = {
+	porfolioNameNode:'.profile__title',
+	porfolioJobNode:'.profile__subtitle'
+}
 
 export {
-	formNode,
+	popupFormEdit,
 	popupFormAdd,
 	popupAddNode,
 	popupEditNode,
 	popupImageNode,
 	listContenerCards,
 	templateElement,
-	formInputNemaNode,
-	formInputjobNode,
+	formInputNameNode,
+	formInputJobNode,
 	profileAddButtonNode,
 	profileButtonNode,
-	porfolioNemaNode,
-	porfoliojobNode
+	profilePorfolio
 };

@@ -1,8 +1,8 @@
-export class Popup {
+export default class Popup {
 
-	constructor(popupSelector) {
-		this._popupSelector = popupSelector;
-		this._popup = document.querySelector(popupSelector);
+	constructor (popupNode) {
+		this._popupNode = popupNode;
+		this._popup = document.querySelector(popupNode);
 		this._handleEscClose = this._handleEscClose.bind(this);
 	}
 
@@ -15,6 +15,7 @@ export class Popup {
 
 	// публичный метод закрытия попап
 	close() {
+		const bodyNode = document.querySelector('.page');
 		this._popup.classList.remove('popup__open');
 		document.removeEventListener('keydown', this._handleEscClose);
 	}
@@ -27,14 +28,14 @@ export class Popup {
 	}
 
 	// закрытия попапа кликом по иконке
-	setEventListeners(){
-		this._popup.addEventListener('click', (evt) => {
-			if (evt.target.closest('.popup__container')
-			&& evt.target.closest('.popup__container_image')
+	setEventListeners() {
+		this._popup.addEventListener('click', evt => {
+			if (!evt.target.closest('.popup__container')
+			&& !evt.target.closest('.popup__container_image')
 			|| evt.target.classList.contains('popup__close')) {
 				this.close();
 			}
-		})
+		});
 
 	}
 

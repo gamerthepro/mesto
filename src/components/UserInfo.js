@@ -1,18 +1,21 @@
 export default class UserInfo{
-	constructor(data){
-		this._firstname = data.name;
-		this._job = data.job;
-		this._porfolioNemaNode= document.querySelector('.profile__title');
-		this._porfoliojobNode= document.querySelector('.profile__subtitle');
+	constructor({porfolioNameNode, porfolioJobNode}) {
+		this._porfolioNameNode = porfolioNameNode;
+		this._porfolioJobNode = porfolioJobNode;
+		this._porfolioName = document.querySelector(this._porfolioNameNode);
+		this._porfolioJob = document.querySelector(this._porfolioJobNode);
 	}
 
-	getUserInfo(){
-		const data = {name: this._porfolioNemaNode.textContent, job: this._porfoliojobNode.textContent}
-		return data
+	getUserInfo () {
+		const dataProfile = {};
+		dataProfile.name = this._porfolioName.textContent;
+		dataProfile.porfolioJob = this._porfolioJob.textContent;
+
+		return dataProfile
 	}
 
-	setUserInfo(data){
-		this._porfolioNemaNode.textContent = data.firstname;
-		this._porfoliojobNode.textContent = data.job;
+	setUserInfo ({porfolioName, porfolioJob}) {
+		this._porfolioName.textContent = porfolioName;
+		this._porfolioJob.textContent = porfolioJob;
 	}
 }
