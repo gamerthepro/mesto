@@ -31,6 +31,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gamerthepro"
-  }
+    "url": "https://github.com/gamerthepro/mesto.git"
+  },
+  "dependencies": {
+	"core-js": "^3.8.3"
+ }
 }
