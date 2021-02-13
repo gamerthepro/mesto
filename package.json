@@ -11,8 +11,7 @@
   "license": "ISC",
   "keywords": [],
   "dependencies": {
-    "core-js": "^3.8.3",
-    "jquery": "^3.5.1"
+    "core-js": "^3.8.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -32,8 +31,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/gamerthepro/mesto.git"
-  },
-  "dependencies": {
-	"core-js": "^3.8.3"
- }
+  }
 }
