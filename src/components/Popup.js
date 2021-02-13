@@ -15,7 +15,6 @@ export default class Popup {
 
 	// публичный метод закрытия попап
 	close() {
-		const bodyNode = document.querySelector('.page');
 		this._popup.classList.remove('popup__open');
 		document.removeEventListener('keydown', this._handleEscClose);
 	}
