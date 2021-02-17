@@ -1,4 +1,3 @@
-import './index.css';
 
 import Card from '../components/Card.js'
 import {validationConfig, FormValidator} from '../components/FormValidator.js'
