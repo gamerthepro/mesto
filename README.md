@@ -17,14 +17,16 @@
 	6.Адаптивная вёрстка
 	7.JavaScript
 	8.Работа с DOM деревом
-	9.ООп
+	9.ООП
+	10.Модулями в JS
+	11.Сборкой проекта с помощью Webpack
 
 
 **Figma**
 
 * [Ссылка на макет в Figma](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4?node-id=0%3A1)
 
-* [Ссылка на проект](https://gamerthepro.github.io/mesto/.)
+* [Ссылка на проект](http://localhost:8080/)
 
 
 **Инструкция по запуску проекта**
