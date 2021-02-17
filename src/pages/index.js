@@ -1,7 +1,7 @@
 import './index.css';
 
 import Card from '../components/Card.js'
-import {validationConfig, FormValidator} from '../components/FormValidator.js'
+import FormValidator from '../components/FormValidator.js'
 import Section from '../components/Section.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import PopupWithImage from '../components/PopupWithImage.js';
@@ -20,7 +20,8 @@ import {
 	formInputJobNode,
 	profileAddButtonNode,
 	profileButtonNode,
-	profilePorfolio
+	profilePorfolio,
+	validationConfig
 } from '../components/utils/constants.js';
 
 //Информация о пользователе

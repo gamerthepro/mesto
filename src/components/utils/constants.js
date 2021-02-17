@@ -16,6 +16,14 @@ const profilePorfolio = {
 	porfolioJobNode:'.profile__subtitle'
 }
 
+const validationConfig = {
+   inputSelector: '.popup__input',
+   submitButtonSelector: '.popup__save',
+	inputErrorSelector: '.popup__error',
+   buttonInvalidClass: 'popup__save_inactive', 
+	inputErrorClass: 'popup__input_error',
+}
+
 export {
 	popupFormEdit,
 	popupFormAdd,
@@ -28,5 +36,6 @@ export {
 	formInputJobNode,
 	profileAddButtonNode,
 	profileButtonNode,
-	profilePorfolio
+	profilePorfolio,
+	validationConfig
 };

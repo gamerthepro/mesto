@@ -20,7 +20,7 @@ export default class Card {
 		this._elemenImg = this._element.querySelector('.element__image');
 		this._element.querySelector('.element__title').textContent = this._name;
 		this._elemenImg.src = this._link;
-		this._elemenImg.alt = this._name + '.';
+		this._elemenImg.alt = `${this._name}.`;
 
 		this._setEventListeners();
 

@@ -11,9 +11,13 @@ export default class Section {
 	}
 
 	// принимает DOM-элемент и добавляет его в контейнер
-	addItem (element) {
-		this._container.append(element);
-	} 
+	addItem(element, isArray){
+      if (isArray) {
+			this._container.append(element);
+      } else {
+			this._container.prepend(element);
+      }
+	}
 
 	prependItem (element) {
 		this._container.prepend(element);
