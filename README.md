@@ -26,7 +26,7 @@
 
 * [Ссылка на макет в Figma](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4?node-id=0%3A1)
 
-* [Ссылка на проект](http://localhost:8080/)
+* [Ссылка на проект](https://gamerthepro.github.io/mesto/.)
 
 
 **Инструкция по запуску проекта**
