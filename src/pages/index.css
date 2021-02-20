@@ -48,3 +48,6 @@
 @import url("../blocks/popup/__save/_inactive/popup__save_inactive.css");
 @import url("../blocks/popup/__img/popup__img.css");
 @import url("../blocks/popup/__caption/popup__caption.css");
+@import url("../blocks/popup/__container/_avatar/popup__container_avatar.css");
+@import url("../blocks/popup/__container/_delete_card/popup__container_delete_card.css");
+@import url("../blocks/popup/__save/_delete_card/popup__save_delete_card.css");
