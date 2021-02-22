@@ -31,7 +31,7 @@
 	transition: opacity .5s ease;
 }
 
-.profile__overlay::before {
+.profile__overlay:hover::before {
 	opacity: 1;
 }
 
