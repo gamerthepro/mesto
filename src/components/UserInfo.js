@@ -1,35 +1,33 @@
-export default class UserInfo {
-  constructor({ usernameSelector, aboutSelector, avatarSelector }) {
-    this._usernameSelector = usernameSelector;
-    this._aboutSelector = aboutSelector;
-    this._avatarSelector = avatarSelector;
-    this._usernameNode = document.querySelector(this._usernameSelector);
-    this._aboutNode = document.querySelector(this._aboutSelector);
-    this._avatarNode = document.querySelector(this._avatarSelector);
-    this._username = '';
-    this._about = '';
-    this._avatar = '';
-  }
+export default class UserInfo{
+	constructor({porfolioNameNode, porfolioJobNode, profileAvatar}) {
+		this._porfolioNameNode = porfolioNameNode;
+		this._porfolioJobNode = porfolioJobNode;
+		this._profileAvatar = profileAvatar;
+		this._porfolioName = document.querySelector(this._porfolioNameNode);
+		this._porfolioJob = document.querySelector(this._porfolioJobNode);
+		this._porfolioAvatar = document.querySelector(this._profileAvatar);
+		this._username = '';
+		this._about = '';
+		this._avatar = '';
+	}
 
-  updateUserInfo () {
-    this._usernameNode.textContent = this._username;
-    this._aboutNode.textContent = this._about;
-    this._avatarNode.src = this._avatar;
-  }
+	updateUserInfo () {
+		this._porfolioName.textContent = this._username;
+		this._porfolioJob.textContent = this._about;
+		this._porfolioAvatar.src = this._avatar;
+	}
 
-  getUserInfo() {
-    return {
-      name: this._username,
-      about: this._about,
-      avatar: this._avatar
-    };
-  }
+	getUserInfo() {
+		return {
+			porfolioName: this._username,
+			porfolioJob: this._about,
+			avatar: this._avatar
+		};
+	}
 
-  setUserInfo({ name, about, avatar }) {
-    this._username = name;
-    this._about = about;
-    this._avatar = avatar;
-  }
+	setUserInfo ({porfolioName, porfolioJob, avatar}) {
+		this._porfolioName.textContent = porfolioName;
+		this._porfolioJob.textContent = porfolioJob;
+		this._avatar = avatar;
+	}
 }
-
-
