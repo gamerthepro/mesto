@@ -31,7 +31,7 @@
 	transition: opacity .5s ease;
 }
 
-.profile__overlayr::before {
+.profile__overlay::before {
 	opacity: 1;
 }
 
