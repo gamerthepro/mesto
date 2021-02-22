@@ -1,16 +1,40 @@
 .profile__avatar {
 	display: block;
-	width: 120px;
-	height: 120px;
-	background-position: center;
-	object-fit: cover;
+	position: relative;
 	border-radius: 100%;
-   background-repeat: no-repeat;
 }
 
-@media screen and (max-width: 1023px) {
-   .profile__avatar {
-		left: 0;
-		top: 0;
-   }
+.profile__avatar::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, .8);
+	opacity: 0;
+	transition: opacity .5s ease;
+}
+
+.profile__avatar::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-image:url(../../../images/EditButton/Vector.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity: 0;
+	z-index: 1;
+	transition: opacity .5s ease;
+}
+
+.profile__avatar:hover::before {
+	opacity: 1;
+}
+
+.profile__avatar:hover::after {
+	opacity: 1;
 }

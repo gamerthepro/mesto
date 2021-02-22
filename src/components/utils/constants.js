@@ -20,7 +20,7 @@ const profileAddButtonNode = document.querySelector('.profile__button_open_add')
 //попап avatar
 const popupAvatarNode = '.popup_type_avatar';
 const popupFormAvatar = '[name="form-avatar"]';
-const profileAvatarButtonNode = document.querySelector('.profile_wrap_avatar')
+const profileAvatarButtonNode = document.querySelector('.profile__avatar')
 
 //попап image
 const popupImageNode = '.popup_type_image';
@@ -37,7 +37,7 @@ const formInputJobNode = document.querySelector('.popup__input_edit_job');
 const profilePorfolio = {
 	porfolioNameNode:'.profile__title',
 	porfolioJobNode:'.profile__subtitle',
-	profileAvatar:'.profile__avatar'  
+	profileAvatar:'.profile__avatar_img'  
 }
 
 const validationConfig = {
