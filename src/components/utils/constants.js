@@ -37,7 +37,7 @@ const formInputJobNode = document.querySelector('.popup__input_edit_job');
 const profilePorfolio = {
 	porfolioNameNode:'.profile__title',
 	porfolioJobNode:'.profile__subtitle',
-	profileAvatar:'.profile__avatar_img'  
+	profileAvatar:'.avatar__img'  
 }
 
 const validationConfig = {
