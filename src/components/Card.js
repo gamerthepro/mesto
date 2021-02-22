@@ -1,63 +1,94 @@
 export default class Card {
 
-	constructor({name, link}, cardSelector, handleCardClick) {
-		this._name = name;
-		this._link = link;
-		this._cardSelector = cardSelector;
-		this._handleCardClick = handleCardClick;
-	}
+  constructor(
+    { name, link, likes, _id, owner, currentUserId },
+    cardSelector,
+    handlePreviewPicture,
+    { handleDeleteCardClick, handleLikeClick }) {
+    this._name = name;
+    this._link = link;
+    this._like = likes;
+    this._cardId = _id;
+    this._cardOwnerId = owner._id;
+    this._currentUserId = currentUserId;
+    this._cardSelector = cardSelector;
+    this._handlePreviewPicture = handlePreviewPicture;
+    this._handleDeleteCardClick = handleDeleteCardClick;
+    this._handleLikeClick = handleLikeClick;
+  }
 
-	//Создание разметки
-	_getTemplate() {
-		const cardElement = document.querySelector(this._cardSelector).content.cloneNode(true);
+  _getTemplate() {
+    const cardTemplate = document
+    .querySelector(this._cardSelector)
+    .content
+    .querySelector('.card')
+    .cloneNode(true);
 
-		return cardElement;
-	}
+    return cardTemplate;
+  }
 
-	 //Генерация карточек по шаблону
-	generateCard(){
-		this._element =  this._getTemplate();
-		this._elemenImg = this._element.querySelector('.element__image');
-		this._element.querySelector('.element__title').textContent = this._name;
-		this._elemenImg.src = this._link;
-		this._elemenImg.alt = `${this._name}.`;
+  generateCard() {
+    this._element = this._getTemplate();
+    this._cardImage = this._element.querySelector('.card__image');
+    this._element.querySelector('.card__title').textContent = this._name;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = `Изображение места ${this._name}`;
 
-		this._setEventListeners();
+    this.setLikeCount(this._like);
+    this._setStateDelButton();
+    this.switchLike(this.getStateMyLike());
+    this._setEventListeners();
 
-		return this._element;
-	}
+    return this._element;
+  }
 
-	//функция лайк
-	_likeItem(evt) {
-		const targetItem = evt.target;
-		targetItem.classList.toggle('element__like_button_active');
-	}
+  _setEventListeners() {
+    this._element.querySelector('.card__btn-like').addEventListener('click', () => {
+      this._handleLikeClick(this._cardId);
+    });
 
-	//функция удаления карточек
-	_removeItem(evt){
-		const targetItem = evt.target.closest('.element');
-		targetItem.remove();
-	}
+    this._element.querySelector('.card__btn-remove').addEventListener('click', () => {
+      this._handleDeleteCardClick(this._cardId);
+    });
 
-	//Установка слушателей
-	_setEventListeners() {
+    this._cardImage.addEventListener('click', () => {
+      const data = {
+        name: this._name,
+        link: this._link
+      }
+      this._handlePreviewPicture(data);
+    });
+  }
 
-		const deleteButton = this._element.querySelector('.element__delete');
-		deleteButton.addEventListener('click', (evt) => {
-			this._removeItem(evt);
-		});
+  handleDeleteCard() {
+    this._element.closest('.card').remove();
+  };
 
-		const likeButton = this._element.querySelector('.element__like')
-		likeButton.addEventListener('click', (evt) => {
-			this._likeItem(evt);
-		});
+  _setStateDelButton() {
+    if (this._currentUserId != this._cardOwnerId) {
+      this._element.querySelector('.card__btn-remove').classList.add('card__btn-remove_disable');
+    }
+  };
 
-		this._elemenImg.addEventListener('click', () => {
-			const data = {
-				name: this._name,
-				link: this._link
-			}
-			this._handleCardClick(data);
-		});
-	};
+  getStateMyLike() {
+    return Boolean (this._like.find(item => item._id === this._currentUserId));
+  }
+
+  switchLike(state) {
+    if(state) {
+      this._element.querySelector('.card__btn-like').classList.add('card__btn-like_active');
+    } else {
+      this._element.querySelector('.card__btn-like').classList.remove('card__btn-like_active');
+    }
+  }
+
+  setLikeCount(data) {
+    this._element.querySelector('.card__like-count').textContent = data.length;
+  }
+
+  reloadDataCard(data) {
+    this._like = data.likes;
+  }
+
 }
+

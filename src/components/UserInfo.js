@@ -1,21 +1,35 @@
-export default class UserInfo{
-	constructor({porfolioNameNode, porfolioJobNode}) {
-		this._porfolioNameNode = porfolioNameNode;
-		this._porfolioJobNode = porfolioJobNode;
-		this._porfolioName = document.querySelector(this._porfolioNameNode);
-		this._porfolioJob = document.querySelector(this._porfolioJobNode);
-	}
+export default class UserInfo {
+  constructor({ usernameSelector, aboutSelector, avatarSelector }) {
+    this._usernameSelector = usernameSelector;
+    this._aboutSelector = aboutSelector;
+    this._avatarSelector = avatarSelector;
+    this._usernameNode = document.querySelector(this._usernameSelector);
+    this._aboutNode = document.querySelector(this._aboutSelector);
+    this._avatarNode = document.querySelector(this._avatarSelector);
+    this._username = '';
+    this._about = '';
+    this._avatar = '';
+  }
 
-	getUserInfo () {
-		const dataProfile = {};
-		dataProfile.name = this._porfolioName.textContent;
-		dataProfile.porfolioJob = this._porfolioJob.textContent;
+  updateUserInfo () {
+    this._usernameNode.textContent = this._username;
+    this._aboutNode.textContent = this._about;
+    this._avatarNode.src = this._avatar;
+  }
 
-		return dataProfile
-	}
+  getUserInfo() {
+    return {
+      name: this._username,
+      about: this._about,
+      avatar: this._avatar
+    };
+  }
 
-	setUserInfo ({porfolioName, porfolioJob}) {
-		this._porfolioName.textContent = porfolioName;
-		this._porfolioJob.textContent = porfolioJob;
-	}
+  setUserInfo({ name, about, avatar }) {
+    this._username = name;
+    this._about = about;
+    this._avatar = avatar;
+  }
 }
+
+

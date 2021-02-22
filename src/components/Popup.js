@@ -1,41 +1,34 @@
 export default class Popup {
+  constructor (popupSelector) {
+    this._popupSelector = popupSelector;
+    this._popup = document.querySelector(popupSelector);
+    this._handleEscClose = this._handleEscClose.bind(this);
+  }
 
-	constructor (popupNode) {
-		this._popupNode = popupNode;
-		this._popup = document.querySelector(popupNode);
-		this._handleEscClose = this._handleEscClose.bind(this);
-	}
+  open() {
+    this._popup.classList.add('popup_open');
+    document.addEventListener('keydown', this._handleEscClose);
+  };
 
-	// публичный метод открытия попап
-	open() {
-		this._popup.classList.add('popup__open');
-		document.addEventListener('keydown', this._handleEscClose);
-	}
+  close() {
+    this._popup.classList.remove('popup_open');
+    document.removeEventListener('keydown', this._handleEscClose);
+  }
 
+  _handleEscClose(e) {
+    if (e.key === 'Escape') {
+      this.close();
+    }
+  }
 
-	// публичный метод закрытия попап
-	close() {
-		this._popup.classList.remove('popup__open');
-		document.removeEventListener('keydown', this._handleEscClose);
-	}
-
-	// закрытия попапа клавишей Esc
-	_handleEscClose(evt) {
-		if (evt.key === "Escape"){
-			this.close();
-		}
-	}
-
-	// закрытия попапа кликом по иконке
-	setEventListeners() {
-		this._popup.addEventListener('click', evt => {
-			if (!evt.target.closest('.popup__container')
-			&& !evt.target.closest('.popup__container_image')
-			|| evt.target.classList.contains('popup__close')) {
-				this.close();
-			}
-		});
-
-	}
-
+  setEventListeners() {
+    this._popup.addEventListener('click', e => {
+      if(!e.target.closest('.popup__content')
+      && !e.target.closest('.popup__image-conteiner')
+      || e.target.classList.contains('popup__icon-close')) {
+        this.close();
+      }
+    });
+  }
 }
+
