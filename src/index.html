@@ -11,12 +11,14 @@
 <body class="page">
 	<div class="page__container">
 		<header class="header page__header">
-			<img class="logo" src="./images/logo/Vector.png" alt="логотип Mesto России">
+			<img class="logo" src="<%=require('./images/logo/Vector.png')%>" alt="логотип Mesto России">
 		</header>
 		<main class="content page__content">
 			<section class="profile">
 				<div class="profile__list">
-					<div class="profile__avatar"></div>
+					<div class="profile__wrap_avatar">
+						<img class="profile__avatar" src="#" alt="Изображение профиля">
+					</div>
 					<div class="profile__info">
 						<h1 class="profile__title">Жак-Ив Кусто</h1>
 						<button class="profile__button profile__button_open_edit" type="button"></button>
@@ -103,11 +105,11 @@
 			<figcaption class="popup__caption"></figcaption>
 		</figure>
 	</div>
-	<div class="popup popup__type_avatar">
+	<div class="popup popup_type_avatar">
 		<div class="popup__container popup__container_avatar">
 				<h2 class="popup__title">Обновить аватар</h2>
 				<button class="popup__close popup__close_avatar" type="button" ></button>
-				<form class="popup__form popup__form_avatar" name="Form-avatar" novalidate>
+				<form class="popup__form popup__form_avatar" name="form-avatar" novalidate>
 					<input class="popup__input popup__input_edit_name popup__input_avatar"
 					name="avatar"
 					type="url"
@@ -120,7 +122,7 @@
 				</form>
 		</div>
 	</div>
-	<div class="popup popup__delete_card">
+	<div class="popup popup_delete_card">
 		<div class="popup__container popup__container_delete_card">
 				<h2 class="popup__title">Вы уверены?</h2>
 				<button class="popup__close popup__close_delete_card" type="button"></button>
@@ -133,7 +135,10 @@
 			<img class="element__image" src='links' alt="Фото в ленте mesto">
 			<div class="element__block">
 				<h2 class="element__title"></h2>
-				<button class="element__like" type="button"></button>
+				<div class="element__wrap_like">
+					<button class="element__like" type="button"></button>
+					<div class="element__like_count"></div>
+				</div>
 			</div>
 		</li>
 	</template>
