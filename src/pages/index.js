@@ -60,7 +60,7 @@ const promises = [api.getCardList(), api.getUserInfoServ()];
 Promise.all(promises)
 	.then(([cardsArray, data]) => {
 		profileInfo.setUserInfo(data);
-		renderCards.render(cardsArray);
+		cardSection.render(cardsArray);
 	})
 	.catch(errorApi)
 
@@ -122,9 +122,9 @@ const createCard = item => {
 }
 
 
-const renderCards = new Section ({
+const cardSection = new Section ({
 	renderer: (item) => {
-		renderCards.addItem(createCard(item))
+		cardSection.addItem(createCard(item))
 	}
 },
 
@@ -137,7 +137,7 @@ const popupAdd = new PopupWithForm(popupAddNode, {
       api
 		.saveNewCard(dataForm)
 			.then(cardData => {
-				renderCards.prependItem(createCard(cardData));
+				cardSection.prependItem(createCard(cardData));
 				popupAdd.close();
 			})
 			.catch(errorApi)
