@@ -55,18 +55,14 @@ const errorApi = err => {
 	console.error(err);
 	};
 
-const updateProfile =() => {
-	api
-		.getUserInfoServ ()
-		.then(data => {
-			userId = data._id;
-			profileInfo.setUserInfo(data);
-			profileInfo.updateUserInfo();
-		})
-		.catch(errorApi)
-}
+const promises = [api.getCardList(), api.getUserInfoServ()];
 
-updateProfile();
+Promise.all(promises)
+	.then(([cardsArray, data]) => {
+		profileInfo.setUserInfo(data);
+		renderCards.render(cardsArray);
+	})
+	.catch(errorApi)
 
 //Создание попапа изображения 
 const popupImg = new PopupWithImage(popupImageNode);
@@ -133,17 +129,6 @@ const renderCards = new Section ({
 },
 
 listContenerCards);
-
-const cardList = () => {
-	api
-	.getCardList()
-	.then(cardsArray => {
-		renderCards.render(cardsArray)
-	})
-	.catch(errorApi)
-}
-
-cardList();
 
 //Создание попапа места
 const popupAdd = new PopupWithForm(popupAddNode, {
