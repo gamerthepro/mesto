@@ -59,7 +59,9 @@ const promises = [api.getCardList(), api.getUserInfoServ()];
 
 Promise.all(promises)
 	.then(([cardsArray, data]) => {
-		profileInfo.setUserInfo(data);
+      userId = data._id;
+      profileInfo.setUserInfo(data);
+      profileInfo.updateUserInfo();
 		cardSection.render(cardsArray);
 	})
 	.catch(errorApi)
