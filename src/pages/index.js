@@ -55,16 +55,27 @@ const errorApi = err => {
 	console.error(err);
 	};
 
-const promises = [api.getCardList(), api.getUserInfoServ()];
+const updateProfile =() => {
+	api
+	.getUserInfoServ()
+	.then(data => {
+		userId = data._id;
+		profileInfo.setUserInfo(data);
+		profileInfo.updateUserInfo();
+	})
+	.catch(errorApi)
+}
+updateProfile();
 
-Promise.all(promises)
-	.then(([cardsArray, data]) => {
-      userId = data._id;
-      profileInfo.setUserInfo(data);
-      profileInfo.updateUserInfo();
+const cardList = () => {
+	api
+	.getCardList()
+	.then(cardsArray => {
 		cardSection.render(cardsArray);
 	})
 	.catch(errorApi)
+}
+cardList();
 
 //Создание попапа изображения 
 const popupImg = new PopupWithImage(popupImageNode);
