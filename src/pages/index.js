@@ -166,9 +166,9 @@ const popupEdit = new PopupWithForm(popupEditNode, {
 	submitPopup: (dataForm) => {
 		popupEdit.renderLoading(true)
       api
-		.saveUserInfo(dataForm)
+		.saveUserInfoServ(dataForm)
 			.then(data => {
-				profileInfo.setUserInfo(dataForm);
+				profileInfo.setUserInfo(data);
 				profileInfo.updateUserInfo();
 				popupEdit.close();
 			})

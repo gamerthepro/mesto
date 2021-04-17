@@ -3,31 +3,31 @@ export default class UserInfo{
 		this._porfolioNameNode = porfolioNameNode;
 		this._porfolioJobNode = porfolioJobNode;
 		this._profileAvatar = profileAvatar;
-		this._porfolioName = document.querySelector(this._porfolioNameNode);
-		this._porfolioJob = document.querySelector(this._porfolioJobNode);
-		this._porfolioAvatar = document.querySelector(this._profileAvatar);
+		this._usernameNode = document.querySelector(this._porfolioNameNode);
+		this._aboutNode = document.querySelector(this._porfolioJobNode);
+		this._avatarNode = document.querySelector(this._profileAvatar);
 		this._username = '';
 		this._about = '';
 		this._avatar = '';
 	}
 
 	updateUserInfo () {
-		this._porfolioName.textContent = this._username;
-		this._porfolioJob.textContent = this._about;
-		this._porfolioAvatar.src = this._avatar;
+		this._usernameNode.textContent = this._username;
+		this._aboutNode.textContent = this._about;
+		this._avatarNode.src = this._avatar;
 	}
 
 	getUserInfo() {
 		return {
-			porfolioName: this._username,
-			porfolioJob: this._about,
+			name: this._username,
+			about: this._about,
 			avatar: this._avatar
 		};
 	}
 
-	setUserInfo ({porfolioName, porfolioJob, avatar}) {
-		this._porfolioName.textContent = porfolioName;
-		this._porfolioJob.textContent = porfolioJob;
+	setUserInfo ({ name, about, avatar }) {
+		this._username = name;
+		this._about = about;
 		this._avatar = avatar;
 	}
 }
